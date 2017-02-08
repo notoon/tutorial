@@ -1,0 +1,5 @@
+# Put the main configuration in this file
+
+application:
+  id: rest-tutorial
+  basePackages: [ org.seedstack.tutorial ]
