@@ -1,36 +1,63 @@
-<?xml version="1.0"?>
-<!--
-
-    Copyright (c) 2013-2015, The SeedStack authors <http://seedstack.org>
-
-    This Source Code Form is subject to the terms of the Mozilla Public
-    License, v. 2.0. If a copy of the MPL was not distributed with this
-    file, You can obtain one at http://mozilla.org/MPL/2.0/.
-
--->
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.adrienlauer.nightclazz</groupId>
-    <artifactId>nightclazz-ddd-sample</artifactId>
+    <groupId>org.seedstack.tutorial</groupId>
+    <artifactId>rest-tutorial</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
     <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <logback.version>1.1.6</logback.version>
     </properties>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.seedstack</groupId>
+                    <artifactId>seedstack-maven-plugin</artifactId>
+                    <version>2.3.1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.3</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.18.1</version>
+                <executions>
+                    <execution>
+                        <id>failsafe-integration-test</id>
+                        <goals>
+                            <goal>integration-test</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>failsafe-verify</id>
+                        <goals>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.seedstack</groupId>
+                <artifactId>seedstack-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>build-capsule</id>
+                        <goals>
+                            <goal>package</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
@@ -40,7 +67,7 @@
             <dependency>
                 <groupId>org.seedstack</groupId>
                 <artifactId>seedstack-bom</artifactId>
-                <version>16.4</version>
+                <version>16.11.1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -50,7 +77,7 @@
     <dependencies>
         <dependency>
             <groupId>org.seedstack</groupId>
-            <artifactId>web-composite</artifactId>
+            <artifactId>rest-composite</artifactId>
             <type>pom</type>
         </dependency>
         <dependency>
@@ -58,13 +85,13 @@
             <artifactId>business-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.seedstack.addons.w20</groupId>
-            <artifactId>w20-bridge-web-business-theme</artifactId>
+            <groupId>org.seedstack.seed</groupId>
+            <artifactId>seed-web-undertow</artifactId>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.1.6</version>
+            <version>${logback.version}</version>
         </dependency>
 
         <dependency>
