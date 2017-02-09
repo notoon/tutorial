@@ -1,4 +1,4 @@
-package com.github.adrienlauer.nightclazz.domain.model.product;
+package org.seedstack.tutorial.domain.model.product;
 
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;

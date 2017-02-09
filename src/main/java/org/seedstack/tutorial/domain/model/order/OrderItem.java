@@ -1,4 +1,4 @@
-package com.github.adrienlauer.nightclazz.domain.model.order;
+package org.seedstack.tutorial.domain.model.order;
 
 import org.mongodb.morphia.annotations.Embedded;
 import org.seedstack.business.domain.BaseValueObject;
