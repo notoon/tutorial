@@ -16,7 +16,7 @@ public class OrderItem extends BaseValueObject {
     }
 
     private OrderItem() {
-        // require by Morphia
+        // required by Morphia
     }
 
     public int getQuantity() {
