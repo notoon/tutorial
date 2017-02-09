@@ -3,3 +3,19 @@
 application:
   id: rest-tutorial
   basePackages: [ org.seedstack.tutorial ]
+
+mongoDb:
+  clients:
+    main:
+      hosts: localhost
+      databases: ddd
+
+classes:
+  org:
+    seedstack:
+      tutorial:
+          domain:
+            model:
+                mongoDbClient: main
+                mongoDbDatabase: ddd
+                defaultRepository: org.seedstack.mongodb.morphia.Morphia

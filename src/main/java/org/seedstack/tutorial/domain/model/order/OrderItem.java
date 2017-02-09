@@ -1,7 +1,9 @@
 package org.seedstack.tutorial.domain.model.order;
 
+import org.mongodb.morphia.annotations.Embedded;
 import org.seedstack.business.domain.BaseValueObject;
 
+@Embedded
 public class OrderItem extends BaseValueObject {
     private long productId;
     private int quantity;
@@ -11,6 +13,10 @@ public class OrderItem extends BaseValueObject {
         this.productId = productId;
         this.quantity = quantity;
         this.unitaryPrice = unitaryPrice;
+    }
+
+    private OrderItem() {
+        // required by Morphia
     }
 
     public int getQuantity() {
